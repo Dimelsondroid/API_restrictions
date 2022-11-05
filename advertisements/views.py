@@ -1,4 +1,4 @@
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from advertisements.filters import AdvertisementFilter
@@ -17,7 +17,7 @@ class AdvertisementViewSet(ModelViewSet):
     def get_permissions(self):
         """Получение прав для действий."""
         if self.action in ["create"]:
-            return [IsAuthenticated()]
+            return [IsAuthenticated(), IsAdminUser()]
         if self.action in ["update", "partial_update", "destroy"]:
-            return [IsAuthenticated(), IsOwner()]
+            return [IsAuthenticated(), IsOwner(), IsAdminUser()]
         return []

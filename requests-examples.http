@@ -26,18 +26,22 @@ Authorization: Token c00d1a76ed18af10282cdf6c022aa2c180c9d944
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/3/
+PATCH {{baseUrl}}/advertisements/18/
 Content-Type: application/json
-Authorization: Token 90753d529c466887717a7f0c782d0f4a9fdbd8f2
+Authorization: Token c00d1a76ed18af10282cdf6c022aa2c180c9d944
 
 {
-  "status": "DRAFT"
+  "description": "Продано"
 }
+
+# {
+#   "status": "OPEN"
+# }
 
 ###
 
 # фильтрация по создателю
-GET {{baseUrl}}/advertisements/?creator=2
+GET {{baseUrl}}/advertisements/?creator=1
 Content-Type: application/json
 
 ###
